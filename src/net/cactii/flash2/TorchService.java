@@ -96,6 +96,7 @@ public class TorchService extends Service {
         mHandler.sendEmptyMessage(MSG_UPDATE_FLASH);
 
         registerReceiver(mStrobeReceiver, new IntentFilter("net.cactii.flash2.SET_STROBE"));
+        Log.d("MOKEEEEEEEEEEEEEEEEEEEEEEEEEEEE_DEBUG", "registerReceiver");
 
         PendingIntent contentIntent = PendingIntent.getActivity(this,
                 0, new Intent(this, MainActivity.class), 0);
@@ -121,6 +122,7 @@ public class TorchService extends Service {
 
     @Override
     public void onDestroy() {
+        Log.d("MOKEEEEEEEEEEEEEEEEEEEEEEEEEEEE_DEBUG", "unregisterReceiver");
         unregisterReceiver(mStrobeReceiver);
         stopForeground(true);
         mHandler.removeCallbacksAndMessages(null);
